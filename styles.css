@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Base de página */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: 'Open Sans', Arial, sans-serif;
+	background: #f5f7fa;
+	color: #1f2937;
+}
+
+.page-content {
+	min-height: 100vh;
+}
+
+/* Overlay del modal */
+.cookie-modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(16, 24, 40, 0.6);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.28s ease, visibility 0.28s ease;
+	z-index: 999;
+}
+
+.cookie-modal-overlay.is-visible {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Tarjeta principal */
+.cookie-modal {
+	position: relative;
+	width: min(100%, 620px);
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+	box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+	padding: 2.25rem 2rem 1.75rem;
+	transform: translateY(16px);
+	opacity: 0;
+	transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.cookie-modal-overlay.is-visible .cookie-modal {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.cookie-modal-overlay.is-closing {
+	opacity: 0;
+}
+
+.cookie-modal-overlay.is-closing .cookie-modal {
+	transform: translateY(12px);
+	opacity: 0;
+}
+
+/* Texto y jerarquía */
+.cookie-title {
+	margin: 0 0 1rem;
+	color: #2f3b4a;
+	font-size: clamp(1.45rem, 3.3vw, 2rem);
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.cookie-description {
+	margin: 0 0 1.5rem;
+	color: #667085;
+	font-size: 1rem;
+	line-height: 1.65;
+}
+
+/* Enlaces */
+.cookie-link {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	font-weight: 600;
+}
+
+.cookie-link:focus-visible,
+.cookie-accept-button:focus-visible {
+	outline: 3px solid rgba(46, 125, 50, 0.25);
+	outline-offset: 2px;
+}
+
+.cookie-link-top,
+.cookie-link-settings {
+	color: #2e7d32;
+}
+
+.cookie-link-policy {
+	color: #1d4ed8;
+}
+
+.cookie-link-top {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 0.92rem;
+}
+
+.cookie-link-settings {
+	display: inline-block;
+	margin-top: 1rem;
+	font-size: 0.98rem;
+}
+
+/* Botón principal */
+.cookie-accept-button {
+	width: 100%;
+	min-height: 52px;
+	border: none;
+	border-radius: 8px;
+	background: #2e7d32;
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.cookie-accept-button:hover {
+	background: #256b29;
+}
+
+/* Ajustes responsive */
+@media (max-width: 640px) {
+	.cookie-modal {
+		padding: 1.75rem 1.25rem 1.4rem;
+		border-radius: 10px;
+	}
+
+	.cookie-link-top {
+		position: static;
+		display: inline-block;
+		margin-bottom: 0.9rem;
+	}
+
+	.cookie-description {
+		font-size: 0.96rem;
+	}
+}

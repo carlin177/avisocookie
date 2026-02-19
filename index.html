@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consentimiento de Cookies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page-content" aria-hidden="true"></main>
+
+    <div class="cookie-modal-overlay" id="cookieOverlay" aria-hidden="true">
+        <section
+            class="cookie-modal"
+            id="cookieModal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cookieModalTitle"
+        >
+            <a href="#" class="cookie-link cookie-link-top" id="rejectCookiesLink">Continuar sin aceptar</a>
+
+            <h2 class="cookie-title" id="cookieModalTitle">Administrar Cookies</h2>
+
+            <p class="cookie-description">
+                Usamos cookies para personalizar el contenido y analizar nuestro tráfico. También compartimos información sobre su uso de nuestro sitio con nuestros socios de acuerdo con nuestra
+                <a href="#" class="cookie-link cookie-link-policy">Política de cookies</a>.
+                Puede administrar sus preferencias de cookies en cualquier momento.
+            </p>
+
+            <button type="button" class="cookie-accept-button" id="acceptCookiesButton">Aceptar cookies</button>
+
+            <a href="#" class="cookie-link cookie-link-settings">Configuración de cookies</a>
+        </section>
+    </div>
+</body>
+<script src="script.js" defer></script>
+</html>
