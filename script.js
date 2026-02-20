@@ -1,11 +1,12 @@
 (function () {
     // Elementos del modal
     const overlay = document.getElementById('cookieOverlay');
+    const modal = document.getElementById('cookieModal');
     const botonAceptar = document.getElementById('acceptCookiesButton');
     const enlaceRechazar = document.getElementById('rejectCookiesLink');
 
     // Si falta algún elemento, salimos para evitar errores
-    if (!overlay || !botonAceptar || !enlaceRechazar) {
+    if (!overlay || !modal || !botonAceptar || !enlaceRechazar) {
         return;
     }
 
@@ -17,8 +18,17 @@
 
     // Mostrar modal
     function mostrarModal() {
+        // Limpiamos clases por si existían de una interacción anterior
+        modal.classList.remove('animate__animated', 'animate__fadeInUp');
+
         overlay.classList.add('is-visible');
         overlay.setAttribute('aria-hidden', 'false');
+
+        // Forzamos reflow para reiniciar la animación correctamente
+        void modal.offsetWidth;
+
+        // Animación de entrada desde abajo con animate.css
+        modal.classList.add('animate__animated', 'animate__fadeInUp');
     }
 
     // Cerrar modal con animación
